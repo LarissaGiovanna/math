@@ -1,16 +1,8 @@
-#testes
-    #x**3 + sin(x) [-1, 1]
-    #x**2 + 2 [0, 1]
-    #x**2 - cos(x) [0.5, 1]
-    #(x/2)**2 + sin(x) [-2, -1]
-    #3*x**4 - x + 3 [5, 1]
-    #sin(x) + cos(x) - (3/x) [-2, -3]
-
 import os
-os.system("cls")
-from matplotlib import pyplot as mpl
-import numpy
-import sympy
+os.system("cls") #deixar terminal limpo
+from matplotlib import pyplot as mpl #biblioteca do grafico
+import numpy #biblioteca math avançada
+import sympy #transformação texto em f(x)
 
 print("===== Método da Bisseção =====")
 
@@ -24,8 +16,8 @@ intervalo = [] #pessoa digita um intervalo(array)
 intervalo.append(float(input("Digite o valor de 'a' (início do intervalo): ")))
 intervalo.append(float(input("Digite o valor de 'b' (fim do intervalo): ")))
 
-a = intervalo[0]
-b = intervalo[1]
+a = intervalo[0] #a = primeiro valor digitado
+b = intervalo[1] #b = segundo valor digitado
 
 parada = float(input("Digite o critério de parada: "))
 

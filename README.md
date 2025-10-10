@@ -13,6 +13,8 @@ O Método consiste em analisar dois intervalos, achar a média entre eles, compa
 ```
 4. Agora rode o código e insira as instruções que o programa pedir.
 
+OBS.: Caso queira alguns exemplos de entradas de funções, veja o arquivo [metodoBissecao-exemplos.txt](https://github.com/LarissaGiovanna/math/blob/main/metodoBisseção-exemplos.txt)
+
 ## Elementos envolvidos:
 - Condicionais (`if`, `elif` e `else`)
 - Estruturas de repetições (`while`);

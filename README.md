@@ -31,3 +31,9 @@ O programa pede para o usuário inserir uma função, um intervalo A e um interv
 Após isso, o programa calcula a média entre os dois pontos e calcula a imagem do ponto A, do ponto B e do ponto médio. Depois, ele compara se as imagens deram positivas ou negativas e verifica se é possivel encontrar uma raíz nesse intervalo. 
 
 Caso seja possivel, ele vai substituir os pontos e vai fazendo novamente esses cálculos em looping até que a imagem do ponto médio seja menor ou igual ao critério de parada estabelecido pelo usuário.
+
+## Como foi o processo de desenvolvimento:
+Esse projeto foi uma atividade avaliativa em grupo que foi passada pelo nosso professor da cadeira de Matemática para Computação do 1º período.
+
+Nosso grupo eram 3 pessoas e separamos as partes do código e atribuímos a cada participante. Vimos que poderíamos colocar algumas funcionalidades a mais como uma representação gráfica e dar um diferencial. Quando todos terminaram suas partes, juntamos nosso código em um só.
+OBS.: Não chegamos a utilizar o Git e o GitHub nesse processo.

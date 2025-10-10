@@ -1,0 +1,31 @@
+Exemplos de funções para testar no programa do método da bisseção (metodoBissecao.py):
+1. f(x) = x³ + sen(x):
+  - Python: x**3 + sin(x) 
+  - Intervalo: [a = -1, b = 1]
+  - Retorna uma raíz exata
+  
+2. f(x) = x² + 2:
+  - Python: x**2 + 2 
+  - Intervalo: [a = 0, b = 1]
+  - Não possui raíz real
+
+3. f(x) = x² - cos(x):
+  - Python: x**2 - cos(x) 
+  - Intervalo: [a = 0.5, b = 1]
+
+4. f(x) = (x/2)² + sen(x):
+  - Python: (x/2)**2 + sin(x) 
+  - Intervalo: [a = -2, b = -1]
+  
+5. f(x) = 3x⁴ - x + 3:
+  - Python: 3*x**4 - x + 3 
+  - Intervalo: [a = 5, b = 1]
+  - Não possui raíz real
+
+6. f(x) = sen(x) + cos(x) - (3/x):
+  - Python: sin(x) + cos(x) - (3/x) 
+  - Intervalo: [a = -2, b = -3]
+
+7. f(x) = √x + x³ + 1:
+  - Python: sqrt(x) - x**3 + 1
+  - Intervalo: [a = 1, b = 2]

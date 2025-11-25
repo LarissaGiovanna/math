@@ -1,5 +1,8 @@
+import sys, os
+sys.path.append(os.path.dirname(__file__))
 from integral import comprimentosX, largurasY
-from sympy import symbols, expand
+from sympy import symbols, expand, sympify
+
 
 x_interpolado = 1
 def interpolacao(x, y, x_interpolado):
@@ -10,7 +13,7 @@ def interpolacao(x, y, x_interpolado):
         for j in range(n):
             if i != j:
                 termo *= (x_interpolado - x[j]) / (x[i] - x[j])
-        resultado += termo
+        result += termo
     return result
     
 def polinomio(x, y):
@@ -18,7 +21,7 @@ def polinomio(x, y):
     n = len(x)
     Polinomioh = 0
     for i in range(n):
-        termo = y[i]
+        termo = sympify(y[i])
         for j in range(n):
             if i != j:
                 termo *= (X - x[j]) / (x[i] - x[j])

@@ -1,6 +1,6 @@
 import sys, os
 sys.path.append(os.path.dirname(__file__))
-from integral import comprimentosX, largurasY
+from main import comprimentosX, largurasY
 from sympy import symbols, expand, sympify
 
 

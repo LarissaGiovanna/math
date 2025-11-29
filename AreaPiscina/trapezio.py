@@ -1,14 +1,11 @@
-import os
-os.system('cls')
-
-def trapezio_simples():
+def trapezio_simples(comprimentosX, largurasY):
   h = comprimentosX[-1] - comprimentosX[0]
   Area_Trapezio = (h/2) * (largurasY[0] + largurasY[1])
   
   print(Area_Trapezio)
   
 
-def trapezio_composto():
+def trapezio_composto(comprimentosX, numeroDePontos, largurasY):
   h = (comprimentosX[-1] - comprimentosX[0])/(numeroDePontos-1)
   y_soma = 0
   for i in range(1,(numeroDePontos - 1)):

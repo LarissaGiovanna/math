@@ -1,8 +1,8 @@
 import os
 import lagrange as lagrange
 import integral
+import trapezio
 os.system("cls")
-#import trapezio
 
 #Entrada dos dados (obviamente)
 
@@ -76,3 +76,19 @@ if opcao == "i":
         areaAbaixo = integral.calcular_area_integral_por_funcao(funcaoAbaixo, limite_inferior=min(comprimentosX_abaixo), limite_superior=max(comprimentosX_abaixo))
 
         areaTotal = areaAcima + abs(areaAbaixo)
+        print("Área calculada pela integral (base função): ", areaTotal)
+# ------- trapezio ---------
+elif opcao == "t":
+    print("---- Trapézio ----")
+    if numeroDePontosAcima <= 2 and numeroDePontosAbaixo <= 2:
+        areaAcima = trapezio.trapezio_simples(comprimentosX_acima, largurasY_acima)
+        areaAbaixo = trapezio.trapezio_simples(comprimentosX_abaixo, largurasY_abaixo)
+
+        areaTotal = areaAcima + abs(areaAbaixo)
+        print("Área calculada pelo método do trapézio: ", areaTotal)
+    else:
+        areaAcima = trapezio.trapezio_composto(comprimentosX_acima, numeroDePontosAcima,largurasY_acima)
+        areaAbaixo = trapezio.trapezio_composto(comprimentosX_abaixo, numeroDePontosAbaixo,largurasY_abaixo)
+
+        areaTotal = areaAcima + abs(areaAbaixo)
+        print("Área calculada pelo método do trapézio: ", areaTotal)

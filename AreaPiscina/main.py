@@ -2,6 +2,7 @@ import os
 import lagrange as lagrange
 import integral
 import trapezio
+import grafico
 os.system("cls")
 
 #Entrada dos dados (obviamente)
@@ -77,6 +78,28 @@ if opcao == "i":
 
         areaTotal = areaAcima + abs(areaAbaixo)
         print("Área calculada pela integral (base função): ", areaTotal)
+    
+            # ---- grafico ----
+        from sympy import symbols, lambdify
+        X = symbols('X')
+
+        # expr_acima/expr_abaixo são as Expressões SymPy retornadas por lagrange.polinomio(...)
+        f_acima = lambdify(X, funcaoAcima, "numpy")
+        f_abaixo = lambdify(X, funcaoAbaixo, "numpy")
+
+        import numpy as np
+
+        x_min = min(min(comprimentosX_acima), min(comprimentosX_abaixo))
+        x_max = max(max(comprimentosX_acima), max(comprimentosX_abaixo))
+
+        x_medio = np.linspace(x_min, x_max, 500)
+
+        y_suave_acima = f_acima(x_medio)
+        y_suave_abaixo = f_abaixo(x_medio)
+
+
+        grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)
+
 # ------- trapezio ---------
 elif opcao == "t":
     print("---- Trapézio ----")
@@ -92,3 +115,61 @@ elif opcao == "t":
 
         areaTotal = areaAcima + abs(areaAbaixo)
         print("Área calculada pelo método do trapézio: ", areaTotal)
+
+    grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima,
+                          largurasY_abaixo)
+
+# ---- ambos ----
+elif opcao == "a":
+    
+        funcaoAcima = lagrange.polinomio(comprimentosX_acima, largurasY_acima)
+        print(funcaoAcima)
+
+        #linha abaixo do eixo X
+        funcaoAbaixo = lagrange.polinomio(comprimentosX_abaixo, largurasY_abaixo)
+        print(funcaoAbaixo)
+        
+        areaAcima = integral.calcular_area_integral_por_funcao(funcaoAcima, limite_inferior=min(comprimentosX_acima), limite_superior=max(comprimentosX_acima))
+
+        areaAbaixo = integral.calcular_area_integral_por_funcao(funcaoAbaixo, limite_inferior=min(comprimentosX_abaixo), limite_superior=max(comprimentosX_abaixo))
+
+        areaTotal = areaAcima + abs(areaAbaixo)
+        print("Área calculada pela integral (base função): ", areaTotal)
+
+        
+        if numeroDePontosAcima <= 2 and numeroDePontosAbaixo <= 2:
+            areaAcima = trapezio.trapezio_simples(comprimentosX_acima, largurasY_acima)
+            areaAbaixo = trapezio.trapezio_simples(comprimentosX_abaixo, largurasY_abaixo)
+
+            areaTotal = areaAcima + abs(areaAbaixo)
+            print("Área calculada pelo método do trapézio: ", areaTotal)
+        else:
+            areaAcima = trapezio.trapezio_composto(comprimentosX_acima, numeroDePontosAcima,largurasY_acima)
+            areaAbaixo = trapezio.trapezio_composto(comprimentosX_abaixo, numeroDePontosAbaixo,largurasY_abaixo)
+
+            areaTotal = areaAcima + abs(areaAbaixo)
+            print("Área calculada pelo método do trapézio: ", areaTotal)
+
+                # ---- grafico ----
+        from sympy import symbols, lambdify
+        X = symbols('X')
+
+        # expr_acima/expr_abaixo são as Expressões SymPy retornadas por lagrange.polinomio(...)
+        f_acima = lambdify(X, funcaoAcima, "numpy")
+        f_abaixo = lambdify(X, funcaoAbaixo, "numpy")
+
+        import numpy as np
+
+        x_min = min(min(comprimentosX_acima), min(comprimentosX_abaixo))
+        x_max = max(max(comprimentosX_acima), max(comprimentosX_abaixo))
+
+        x_medio = np.linspace(x_min, x_max, 500)
+
+        y_suave_acima = f_acima(x_medio)
+        y_suave_abaixo = f_abaixo(x_medio)
+
+        grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)
+
+        grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima, largurasY_abaixo)
+        grafico.pausar()
+    

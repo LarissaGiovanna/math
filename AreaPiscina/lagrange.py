@@ -1,6 +1,3 @@
-import sys, os
-sys.path.append(os.path.dirname(__file__))
-from main import comprimentosX, largurasY
 from sympy import symbols, expand, sympify
 
 x_interpolado = 1
@@ -27,8 +24,3 @@ def polinomio(x, y):
                 termo *= (X - x[j]) / (x[i] - x[j])
         Polinomioh += termo
     return expand(Polinomioh)
-
-print(f"Y interpolado para X={x_interpolado}: {interpolacao(comprimentosX, largurasY, x_interpolado)}")
-
-print("Polinômio de Lagrange:")
-print(polinomio(comprimentosX, largurasY))

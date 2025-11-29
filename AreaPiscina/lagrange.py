@@ -1,11 +1,7 @@
-import sys, os
-sys.path.append(os.path.dirname(__file__))
-from main import comprimentosX, largurasY
 from sympy import symbols, expand, sympify
 
-
 x_interpolado = 1
-def interpolacao(x, y, x_interpolado):
+def interpolacao(x, y):
     n = len(x)
     result = 0
     for i in range(n):
@@ -17,6 +13,12 @@ def interpolacao(x, y, x_interpolado):
     return result
     
 def polinomio(x, y):
+
+    #verificao caso exista x repetidos
+    if len(set(x)) != len(x):
+        raise ValueError("Existem valores repetidos em X. Interpolação de Lagrange não permite isso.")
+
+
     X = symbols('X')
     n = len(x)
     Polinomioh = 0
@@ -28,7 +30,7 @@ def polinomio(x, y):
         Polinomioh += termo
     return expand(Polinomioh)
 
-print(f"Y interpolado para X={x_interpolado}: {interpolacao(comprimentosX, largurasY, x_interpolado)}")
+# print(f"Y interpolado para X={x_interpolado}: {interpolacao(comprimentosX, largurasY)}")
 
-print("Polinômio de Lagrange:")
-print(polinomio(comprimentosX, largurasY))
+# print("Polinômio de Lagrange:")
+# print(polinomio(comprimentosX, largurasY))

@@ -138,7 +138,7 @@ elif opcao == "a":
 
         # ----- comparação -----
         diferenca = abs(areaIntegralTotal - areaTrapezioTotal)
-        print(f"Houve uma diferença de {diferenca}m² entre a área calculada por Integral e pelo Método do Trapézio.")
+        print(f"Houve uma diferença de {diferenca:.5f}m² entre a área calculada por Integral e pelo Método do Trapézio.")
 
         # ---- grafico ----
 

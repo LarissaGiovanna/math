@@ -7,8 +7,6 @@ def trapezio_simples(comprimentosX, largurasY):
   
 
 def trapezio_composto(comprimentosX, numeroDePontos, largurasY):
-  print(len(comprimentosX), numeroDePontos, len(largurasY))
-
   h = (comprimentosX[-1] - comprimentosX[0])/(numeroDePontos-1)
   y_soma = 0
   for i in range(1,(numeroDePontos - 1)):

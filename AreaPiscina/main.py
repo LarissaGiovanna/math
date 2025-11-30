@@ -59,7 +59,7 @@ if opcao == "i":
         areaAbaixo = integral.calcular_area_integral_por_pontos(pontosAbaixo)
 
         areaTotal = areaAcima + abs(areaAbaixo)
-        print("Área calculada pela integral (base pontos): ", areaTotal)
+        print(f"Área calculada pela integral (base pontos): {areaTotal:.5f}")
 
     elif forma == "f":
         # ============ polinomio com lagrange ==============
@@ -76,7 +76,7 @@ if opcao == "i":
         areaAbaixo = integral.calcular_area_integral_por_funcao(funcaoAbaixo, limite_inferior=min(comprimentosX_abaixo), limite_superior=max(comprimentosX_abaixo))
 
         areaTotal = areaAcima + abs(areaAbaixo)
-        print("Área calculada pela integral (base função): ", areaTotal)
+        print(f"Área calculada pela integral (base função): {areaTotal:.5f}")
     
             # ---- grafico ----
         x_medio, y_suave_acima, y_suave_abaixo = grafico.organizar_grafico(funcaoAcima, funcaoAbaixo, comprimentosX_acima, comprimentosX_abaixo)
@@ -93,13 +93,13 @@ elif opcao == "t":
         areaAbaixo = trapezio.trapezio_simples(comprimentosX_abaixo, largurasY_abaixo)
 
         areaTotal = areaAcima + abs(areaAbaixo)
-        print("Área calculada pelo método do trapézio: ", areaTotal)
+        print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
     else:
         areaAcima = trapezio.trapezio_composto(comprimentosX_acima, numeroDePontosAcima,largurasY_acima)
         areaAbaixo = trapezio.trapezio_composto(comprimentosX_abaixo, numeroDePontosAbaixo,largurasY_abaixo)
 
         areaTotal = areaAcima + abs(areaAbaixo)
-        print("Área calculada pelo método do trapézio: ", areaTotal)
+        print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
 
     # ----- grafico -----
     grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima,
@@ -120,7 +120,7 @@ elif opcao == "a":
         areaAbaixo = integral.calcular_area_integral_por_funcao(funcaoAbaixo, limite_inferior=min(comprimentosX_abaixo), limite_superior=max(comprimentosX_abaixo))
 
         areaTotal = areaAcima + abs(areaAbaixo)
-        print("Área calculada pela integral (base função): ", areaTotal)
+        print(f"Área calculada pela integral (base função): {areaTotal:.5f}")
 
         
         if numeroDePontosAcima <= 2 and numeroDePontosAbaixo <= 2:
@@ -128,13 +128,13 @@ elif opcao == "a":
             areaAbaixo = trapezio.trapezio_simples(comprimentosX_abaixo, largurasY_abaixo)
 
             areaTotal = areaAcima + abs(areaAbaixo)
-            print("Área calculada pelo método do trapézio: ", areaTotal)
+            print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
         else:
             areaAcima = trapezio.trapezio_composto(comprimentosX_acima, numeroDePontosAcima,largurasY_acima)
             areaAbaixo = trapezio.trapezio_composto(comprimentosX_abaixo, numeroDePontosAbaixo,largurasY_abaixo)
 
             areaTotal = areaAcima + abs(areaAbaixo)
-            print("Área calculada pelo método do trapézio: ", areaTotal)
+            print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
 
                 # ---- grafico ----
         

@@ -57,4 +57,4 @@ def mostrar_trapezios(x_nos, y_acima_nos, y_abaixo_nos):
 
 
 def pausar():
-    input()
+    input("Digite ENTER para encerrar...")

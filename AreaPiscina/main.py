@@ -119,25 +119,29 @@ elif opcao == "a":
 
         areaAbaixo = integral.calcular_area_integral_por_funcao(funcaoAbaixo, limite_inferior=min(comprimentosX_abaixo), limite_superior=max(comprimentosX_abaixo))
 
-        areaTotal = areaAcima + abs(areaAbaixo)
-        print(f"Área calculada pela integral (base função): {areaTotal:.5f}")
+        areaIntegralTotal = areaAcima + abs(areaAbaixo)
+        print(f"Área calculada pela integral (base função): {areaIntegralTotal:.5f}")
 
         
         if numeroDePontosAcima <= 2 and numeroDePontosAbaixo <= 2:
             areaAcima = trapezio.trapezio_simples(comprimentosX_acima, largurasY_acima)
             areaAbaixo = trapezio.trapezio_simples(comprimentosX_abaixo, largurasY_abaixo)
 
-            areaTotal = areaAcima + abs(areaAbaixo)
-            print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
+            areaTrapezioTotal = areaAcima + abs(areaAbaixo)
+            print(f"Área calculada pelo método do trapézio: {areaTrapezioTotal:.5f}")
         else:
             areaAcima = trapezio.trapezio_composto(comprimentosX_acima, numeroDePontosAcima,largurasY_acima)
             areaAbaixo = trapezio.trapezio_composto(comprimentosX_abaixo, numeroDePontosAbaixo,largurasY_abaixo)
 
-            areaTotal = areaAcima + abs(areaAbaixo)
-            print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
+            areaTrapezioTotal = areaAcima + abs(areaAbaixo)
+            print(f"Área calculada pelo método do trapézio: {areaTrapezioTotal:.5f}")
 
-                # ---- grafico ----
-        
+        # ----- comparação -----
+        diferenca = abs(areaIntegralTotal - areaTrapezioTotal)
+        print(f"Houve uma diferença de {diferenca}m² entre a área calculada por Integral e pelo Método do Trapézio.")
+
+        # ---- grafico ----
+
         x_medio, y_suave_acima, y_suave_abaixo = grafico.organizar_grafico(funcaoAcima, funcaoAbaixo, comprimentosX_acima, comprimentosX_abaixo)
 
         grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)

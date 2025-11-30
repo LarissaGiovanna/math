@@ -5,13 +5,12 @@ import trapezio
 import grafico
 os.system("cls")
 
-#Entrada dos dados (obviamente)
-
+# ========== Entrada dos dados ==========
 print("Quantos pares ordenados (x, y) teremos?")
 print("[X = comprimento da piscina | Y = largura da piscina]")
 
-numeroDePontosAcima = int(input("Quantidade de pontos ACIMA do eixo X"))
-numeroDePontosAbaixo = int(input("Quantidade de pontos ABAIXO do eixo X"))
+numeroDePontosAcima = int(input("Quantidade de pontos ACIMA do eixo X: "))
+numeroDePontosAbaixo = int(input("Quantidade de pontos ABAIXO do eixo X: "))
 
 comprimentosX_acima= []
 largurasY_acima= []
@@ -21,8 +20,8 @@ largurasY_abaixo= []
 print("Digite os pontos que estão ACIMA do eixo X")
 for i in range (numeroDePontosAcima):
 
-    comprimento = float(input(f"X{i+1} (comprimento): "))
-    largura = float(input(f"Y{i+1} (largura): "))
+    comprimento = float(input(f"x{i+1} (comprimento): "))
+    largura = float(input(f"y{i+1} (largura): "))
 
     comprimentosX_acima.append(comprimento)
     largurasY_acima.append(largura)
@@ -31,8 +30,8 @@ for i in range (numeroDePontosAcima):
 print("Digite os pontos que estão ABAIXO do eixo X")
 for i in range (numeroDePontosAbaixo):
 
-    comprimento = float(input(f"X{i+1} (comprimento): "))
-    largura = float(input(f"Y{i+1} (largura): "))
+    comprimento = float(input(f"x{i+1} (comprimento): "))
+    largura = float(input(f"y{i+1} (largura): "))
 
     comprimentosX_abaixo.append(comprimento)
     largurasY_abaixo.append(largura)
@@ -46,11 +45,11 @@ print(comprimentosX_abaixo)
 print(largurasY_abaixo)
 
 # =================== Calcular area =======================
-print("De que forma que deseja calcular a área?\ni - Integral\nt - Método do Trapézio\n a - Ambas as opções")
+print("De que forma que deseja calcular a área?\n i - Integral\n t - Método do Trapézio\n a - Ambas as opções")
 opcao = input("Sua opção: ").lower().strip()
 
 if opcao == "i":
-    print("---- Integral ----")
+    print("\n---- Integral ----")
     forma = input("p - Calcular com base nos pontos\nf - Calcular com base na função (Lagrange)\nOpção: ").strip()
     if forma == "p":
         pontosAcima = integral.organizar_pontos(comprimentosX_acima, largurasY_acima)
@@ -80,25 +79,11 @@ if opcao == "i":
         print("Área calculada pela integral (base função): ", areaTotal)
     
             # ---- grafico ----
-        from sympy import symbols, lambdify
-        X = symbols('X')
-
-        # expr_acima/expr_abaixo são as Expressões SymPy retornadas por lagrange.polinomio(...)
-        f_acima = lambdify(X, funcaoAcima, "numpy")
-        f_abaixo = lambdify(X, funcaoAbaixo, "numpy")
-
-        import numpy as np
-
-        x_min = min(min(comprimentosX_acima), min(comprimentosX_abaixo))
-        x_max = max(max(comprimentosX_acima), max(comprimentosX_abaixo))
-
-        x_medio = np.linspace(x_min, x_max, 500)
-
-        y_suave_acima = f_acima(x_medio)
-        y_suave_abaixo = f_abaixo(x_medio)
-
+        x_medio, y_suave_acima, y_suave_abaixo = grafico.organizar_grafico(funcaoAcima, funcaoAbaixo, comprimentosX_acima, comprimentosX_abaixo)
 
         grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)
+
+        grafico.pausar()
 
 # ------- trapezio ---------
 elif opcao == "t":
@@ -116,12 +101,13 @@ elif opcao == "t":
         areaTotal = areaAcima + abs(areaAbaixo)
         print("Área calculada pelo método do trapézio: ", areaTotal)
 
+    # ----- grafico -----
     grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima,
                           largurasY_abaixo)
+    grafico.pausar()
 
 # ---- ambos ----
 elif opcao == "a":
-    
         funcaoAcima = lagrange.polinomio(comprimentosX_acima, largurasY_acima)
         print(funcaoAcima)
 
@@ -151,25 +137,12 @@ elif opcao == "a":
             print("Área calculada pelo método do trapézio: ", areaTotal)
 
                 # ---- grafico ----
-        from sympy import symbols, lambdify
-        X = symbols('X')
-
-        # expr_acima/expr_abaixo são as Expressões SymPy retornadas por lagrange.polinomio(...)
-        f_acima = lambdify(X, funcaoAcima, "numpy")
-        f_abaixo = lambdify(X, funcaoAbaixo, "numpy")
-
-        import numpy as np
-
-        x_min = min(min(comprimentosX_acima), min(comprimentosX_abaixo))
-        x_max = max(max(comprimentosX_acima), max(comprimentosX_abaixo))
-
-        x_medio = np.linspace(x_min, x_max, 500)
-
-        y_suave_acima = f_acima(x_medio)
-        y_suave_abaixo = f_abaixo(x_medio)
+        
+        x_medio, y_suave_acima, y_suave_abaixo = grafico.organizar_grafico(funcaoAcima, funcaoAbaixo, comprimentosX_acima, comprimentosX_abaixo)
 
         grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)
 
         grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima, largurasY_abaixo)
+
         grafico.pausar()
     

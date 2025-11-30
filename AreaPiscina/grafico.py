@@ -1,5 +1,23 @@
 from matplotlib import pyplot as mpl
 import numpy as np
+from sympy import symbols, lambdify
+
+def organizar_grafico(funcaoAcima, funcaoAbaixo, comprimentosX_acima, comprimentosX_abaixo):
+        X = symbols('X')
+
+        # expr_acima/expr_abaixo são as Expressões SymPy retornadas por lagrange.polinomio(...)
+        f_acima = lambdify(X, funcaoAcima, "numpy")
+        f_abaixo = lambdify(X, funcaoAbaixo, "numpy")
+
+        x_min = min(min(comprimentosX_acima), min(comprimentosX_abaixo))
+        x_max = max(max(comprimentosX_acima), max(comprimentosX_abaixo))
+
+        x_medio = np.linspace(x_min, x_max, 500)
+
+        y_suave_acima = f_acima(x_medio)
+        y_suave_abaixo = f_abaixo(x_medio)
+
+        return x_medio, y_suave_acima, y_suave_abaixo
 
 def mostrar_integral(x, y_acima, y_abaixo):
     mpl.figure()  # abre nova janela

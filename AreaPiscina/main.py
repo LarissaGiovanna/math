@@ -65,11 +65,11 @@ if opcao == "i":
         # ============ polinomio com lagrange ==============
         # linha acima do eixo X
         funcaoAcima = lagrange.polinomio(comprimentosX_acima, largurasY_acima)
-        print(funcaoAcima)
+        print("Polinômio acima:",funcaoAcima)
 
         #linha abaixo do eixo X
         funcaoAbaixo = lagrange.polinomio(comprimentosX_abaixo, largurasY_abaixo)
-        print(funcaoAbaixo)
+        print("Polinômio abaixo:",funcaoAbaixo)
         
         areaAcima = integral.calcular_area_integral_por_funcao(funcaoAcima, limite_inferior=min(comprimentosX_acima), limite_superior=max(comprimentosX_acima))
 
@@ -108,11 +108,11 @@ elif opcao == "t":
 # ---- ambos ----
 elif opcao == "a":
         funcaoAcima = lagrange.polinomio(comprimentosX_acima, largurasY_acima)
-        print(funcaoAcima)
+        print("Polinômio acima:",funcaoAcima)
 
         #linha abaixo do eixo X
         funcaoAbaixo = lagrange.polinomio(comprimentosX_abaixo, largurasY_abaixo)
-        print(funcaoAbaixo)
+        print("Polinômio abaixo:",funcaoAbaixo)
         
         areaAcima = integral.calcular_area_integral_por_funcao(funcaoAcima, limite_inferior=min(comprimentosX_acima), limite_superior=max(comprimentosX_acima))
 

@@ -38,32 +38,41 @@ def mostrar_integral(x, y_acima, y_abaixo):
     mpl.ylabel("y")
     mpl.show(block = False)
 
+def mostrar_trapezios(x_acima, y_acima, x_abaixo, y_abaixo):
+    mpl.figure()
 
-def mostrar_trapezios(x_nos, y_acima_nos, y_abaixo_nos):
-    mpl.figure()  # abre nova janela
-
-    #destacar o eixo x
-    ax = mpl.gca()
-    ax.axhline(0, color="black", linewidth=2)
-
-    # plota apenas os pontos
-    mpl.plot(x_nos, y_acima_nos, marker="o", color="green", label="Acima")
-    mpl.plot(x_nos, y_abaixo_nos, marker="o", color="red", label="Abaixo")
-
-    # desenhar os trapézios
-    for i in range(len(x_nos) - 1):
-        xs = [x_nos[i], x_nos[i+1], x_nos[i+1], x_nos[i]]
-        ys = [y_acima_nos[i], y_acima_nos[i+1], y_abaixo_nos[i+1], y_abaixo_nos[i]]
-
+    # Parte de cima
+    for i in range(len(x_acima) - 1):
+        xs = [x_acima[i], x_acima[i+1], x_acima[i+1], x_acima[i]]
+        ys = [0, 0, y_acima[i+1], y_acima[i]]
         mpl.fill(xs, ys, color="green", alpha=0.3)
+
+    mpl.plot(x_acima, y_acima, marker="o", color="green", label="Acima")
+
+
+    # Parte de baixo
+    # ----- Ordenação -----
+    x_abaixo_sorted, y_abaixo_sorted = zip(*sorted(zip(x_abaixo, y_abaixo)))
+
+    for i in range(len(x_abaixo_sorted) - 1):
+        xs = [x_abaixo_sorted[i], x_abaixo_sorted[i+1], 
+              x_abaixo_sorted[i+1], x_abaixo_sorted[i]]
+        ys = [0, 0, y_abaixo_sorted[i+1], y_abaixo_sorted[i]]
+        mpl.fill(xs, ys, color="red", alpha=0.3)
+
+    # ----- Curva -----
+    mpl.plot(x_abaixo_sorted, y_abaixo_sorted, marker="o", color="red", label="Abaixo")
+
+
+    # Eixo X mais destacado
+    mpl.axhline(0, color="black", linewidth=2)
 
     mpl.legend()
     mpl.grid()
-    mpl.title("Área pelo Método dos Trapézios")
     mpl.xlabel("x")
     mpl.ylabel("y")
-    mpl.show(block = False)
-
+    mpl.title("Área pelo Método do Trapézio")
+    mpl.show(block=False)
 
 def pausar():
     input("Digite ENTER para encerrar...")

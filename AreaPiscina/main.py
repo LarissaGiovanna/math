@@ -102,8 +102,7 @@ elif opcao == "t":
         print(f"Área calculada pelo método do trapézio: {areaTotal:.5f}")
 
     # ----- grafico -----
-    grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima,
-                          largurasY_abaixo)
+    grafico.mostrar_trapezios(x_acima=comprimentosX_acima, x_abaixo=comprimentosX_abaixo, y_acima=largurasY_acima, y_abaixo=largurasY_abaixo)
     grafico.pausar()
 
 # ---- ambos ----
@@ -146,7 +145,7 @@ elif opcao == "a":
 
         grafico.mostrar_integral(x_medio, y_suave_acima, y_suave_abaixo)
 
-        grafico.mostrar_trapezios(comprimentosX_acima, largurasY_acima, largurasY_abaixo)
+        grafico.mostrar_trapezios(x_acima=comprimentosX_acima, x_abaixo=comprimentosX_abaixo, y_acima=largurasY_acima, y_abaixo=largurasY_abaixo)
 
         grafico.pausar()
     

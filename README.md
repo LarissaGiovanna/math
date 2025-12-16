@@ -13,7 +13,7 @@ O Método consiste em analisar dois intervalos, achar a média entre eles, compa
 ```
 4. Agora rode o código e insira as instruções que o programa pedir.
 
-OBS.: Caso queira alguns exemplos de entradas de funções, veja o arquivo [metodoBissecao-exemplos.txt](https://github.com/LarissaGiovanna/math/blob/main/metodoBisseção-exemplos.txt)
+OBS.: Caso queira alguns exemplos de entradas de funções, veja o arquivo [metodoBissecao-exemplos.txt](https://github.com/LarissaGiovanna/math/blob/main/metodoBisseção-exemplos.txt).
 
 ## Elementos envolvidos:
 - Condicionais (`if`, `elif` e `else`)
@@ -35,5 +35,5 @@ Caso seja possivel, ele vai substituir os pontos e vai fazendo novamente esses c
 ## Como foi o processo de desenvolvimento:
 Esse projeto foi uma atividade avaliativa em grupo que foi passada pelo nosso professor da cadeira de Matemática para Computação do 1º período.
 
-Nosso grupo eram 3 pessoas e separamos as partes do código e atribuímos a cada participante. Vimos que poderíamos colocar algumas funcionalidades a mais como uma representação gráfica e dar um diferencial. Quando todos terminaram suas partes, juntamos nosso código em um só.
+No nosso grupo haviam 3 pessoas e separamos as partes do código e atribuímos a cada participante. Vimos que poderíamos colocar algumas funcionalidades a mais como uma representação gráfica e dar um diferencial. Quando todos terminaram suas partes, juntamos nosso código em um só.
 OBS.: Não chegamos a utilizar o Git e o GitHub nesse processo.
